@@ -30,6 +30,8 @@ This builds on the implementation from OpenZepplin for regular NFTs.
 
 - I have not tested the functions beyond making sure they don't break for very limited and obvious inputs nor have I determined if the code is properly complied with EIP-721.
 
+- This uses EIP 191 standard for hashed messages for signature verification whilst it seems that EIP 712 is to be preferred.
+
 ### Identifying ownership
 
 The only functionality that is likely to really matter context of gasless minting is transfer. For this there is signature-based ownership verification by requiring the owner to sign the token id hash. The contract just XOR's the token with the hashed address to get the signed message hash and also receives the signature and using the two of these can verify if the sender is the owner.
